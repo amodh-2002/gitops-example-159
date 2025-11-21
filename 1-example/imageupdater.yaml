@@ -1,0 +1,14 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: my-app-updater
+  namespace: argocd
+spec:
+  namespace: argocd
+  applicationRefs:
+    - namePattern: "my-app"
+      images:
+        - alias: "nginx"
+          imageName: "howaboutwepullsomeimages/nginx-lesson159"
+          commonUpdateSettings:
+            strategy: "semver"
